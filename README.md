@@ -3,8 +3,8 @@
 Bot de Telegram para emitir facturas en PDF (estilo venezolano: RIF, IVA 16%,
 nº de control) y almacenarlas en SQLite.
 
-[![Deploy to Render](https://img.shields.io/badge/Deploy%20to-Render-46b3ff?style=for-the-badge&logo=render&logoColor=white)](https://dashboard.render.com/deploy/sr-new-repo?repo=https://github.com/fsfeds95/facturabot&type=web_service)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/fsfeds95/facturabot&project-name=facturabot&framework=python)
+[![Deploy to Render](https://img.shields.io/badge/Deploy%20to-Render-46b3ff?style=for-the-badge&logo=render&logoColor=white)](https://dashboard.render.com/deploy/sr-new-repo?repo=https://github.com/fsfeds95/PruebaBotFactura_06-26&type=web_service)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/fsfeds95/PruebaBotFactura_06-26&project-name=facturabot&framework=python)
 
 ## ⚠️ Seguridad
 
@@ -43,8 +43,8 @@ python main.py
 
 ## Despliegue en la nube (botones 🚀)
 
-[![Deploy to Render](https://img.shields.io/badge/Deploy%20to-Render-46b3ff?style=for-the-badge&logo=render&logoColor=white)](https://dashboard.render.com/deploy/sr-new-repo?repo=https://github.com/fsfeds95/facturabot&type=web_service)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/fsfeds95/facturabot&project-name=facturabot&framework=python)
+[![Deploy to Render](https://img.shields.io/badge/Deploy%20to-Render-46b3ff?style=for-the-badge&logo=render&logoColor=white)](https://dashboard.render.com/deploy/sr-new-repo?repo=https://github.com/fsfeds95/PruebaBotFactura_06-26&type=web_service)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/fsfeds95/PruebaBotFactura_06-26&project-name=facturabot&framework=python)
 
 ### Render (recomendado — BD persistente)
 
