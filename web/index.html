@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FacturaBot 🧾 — Despliegue en Render y Vercel</title>
+<style>
+  :root { --bg:#0f1220; --card:#1a1f35; --accent:#6c8cff; --ok:#3ecf8e; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(160deg, var(--bg), #141a2e 60%, #101527);
+    color: #e8ebff; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    background: var(--card); border: 1px solid #2a3152; border-radius: 18px;
+    padding: 40px; max-width: 640px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  }
+  h1 { font-size: 1.9rem; margin-bottom: 6px; }
+  .sub { color: #9aa3c7; margin-bottom: 28px; line-height: 1.5; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 30px; }
+  .deploy {
+    flex: 1 1 240px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px 20px; border-radius: 12px; text-decoration: none; font-weight: 600;
+    transition: transform .15s ease, filter .15s ease; border: 1px solid transparent;
+  }
+  .deploy:hover { transform: translateY(-2px); filter: brightness(1.1); }
+  .deploy img { height: 22px; }
+  .render { background: #46b3ff; color: #04263d; }
+  .vercel { background: #fff; color: #000; }
+  .badge { font-size: .75rem; padding: 3px 10px; border-radius: 999px; background:#232a49; color:#9aa3c7; display:inline-block; margin-bottom: 18px;}
+  ol { margin: 0 0 22px 20px; color: #c3caea; line-height: 1.75; font-size: .92rem; }
+  code { background:#232a49; padding: 2px 6px; border-radius: 6px; font-size: .85em; color:#cfe0ff; }
+  .status { font-size: .85rem; color: var(--ok); }
+  footer { margin-top: 22px; font-size:.8rem; color:#6b7396; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">🧾 FacturaBot · modo webhook activo</span>
+    <h1>Despliega tu FacturaBot ☁️</h1>
+    <p class="sub">
+      Este servicio recibe los mensajes de Telegram vía <code>POST /webhook</code>.
+      Usa uno de los botones para desplegarlo con un clic (los valores del formulario
+      ya están preconfigurados desde <code>render.yaml</code> / <code>vercel.json</code>):
+    </p>
+
+    <div class="buttons">
+      <!-- Botón Deploy to Render: apunta al render.yaml del repo -->
+      <a class="deploy render" target="_blank" rel="noopener"
+         href="https://dashboard.render.com/deploy/sr-new-repo?repo=https://github.com/TU_USUARIO/facturabot&type=web_service">
+        <img src="https://cdn.jsdelivr.net/gh/PritikaSubramaniyam/Render-Button@main/render-button.svg"
+             alt="Deploy to Render" onerror="this.remove()" />
+        Deploy to Render
+      </a>
+
+      <!-- Botón Deploy to Vercel -->
+      <a class="deploy vercel" target="_blank" rel="noopener"
+         href="https://vercel.com/new/clone?repository-url=https://github.com/TU_USUARIO/facturabot&project-name=facturabot&framework=python">
+        <svg height="20" viewBox="0 0 76 64" xmlns="http://www.w3.org/2000/svg" fill="#000">
+          <path d="M37.5274 0L75.0548 64H0L37.5274 0Z"/>
+        </svg>
+        Deploy to Vercel
+      </a>
+    </div>
+
+    <ol>
+      <li>Haz clic en el botón y conecta tu cuenta (<strong>Render</strong> o <strong>Vercel</strong>).</li>
+      <li>En las variables de entorno pega tu <code>BOT_TOKEN</code> (nuevo, revocado el anterior),
+          <code>ALLOWED_USER_IDS</code> y <code>WEBHOOK_SECRET</code>.</li>
+      <li>Tras el despliegue, registra la URL pública ante Telegram:
+          <code>python -m facturabot.webhook</code> (usa <code>RENDER_EXTERNAL_URL</code> /
+          <code>VERCEL_URL</code> automáticamente).</li>
+      <li>⚠️ En Vercel la BD vive en <code>/tmp</code> (se pierde al reiniciar): ideal para probar.
+          Para datos permanentes usa <strong>Render + Disk</strong> o Postgres.</li>
+    </ol>
+
+    <p class="status">✅ Si ves esta página, el servicio web está funcionando.</p>
+    <footer>Health check: <a href="/health" style="color:#6c8cff">/health</a> · Webhook: <code>POST /webhook</code></footer>
+  </main>
+</body>
+</html>

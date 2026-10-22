@@ -1,0 +1,38 @@
+services:
+  # FacturaBot en Render (modo webhook, gratuito con spin-down)
+  - type: web
+    name: facturabot
+    runtime: python
+    plan: free
+    region: oregon
+    rootDir: .
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      # ⚠️ Valores SENSIBLES: márcalos como "Secret" en el panel de Render
+      - key: BOT_TOKEN           # revoca el anterior en @BotFather y pega uno nuevo
+        sync: false
+      - key: ALLOWED_USER_IDS    # tu ID de Telegram, separados por comas
+        sync: false
+      - key: WEBHOOK_SECRET      # string aleatorio; protege POST /webhook
+        generateValue: true
+      # Datos fiscales del emisor (ajusta a tu negocio)
+      - key: EMISOR_NOMBRE
+        value: Brianta Pet Luengo
+      - key: EMISOR_DIRECCION
+        value: Calle Gramoven, Casa Nro. 6, Barrio 19 de Abril
+      - key: EMISOR_CIUDAD
+        value: Caracas, Distrito Capital, Zona Postal: 1010
+      - key: MONEDA_POR_DEFECTO
+        value: USD
+      - key: IVA_PORCENTAJE
+        value: "16"
+      - key: LOGO_URL
+        value: https://i.ibb.co/ZpQTHPDj/IMG-20260625-WA0160.jpg
+      # Persistencia: Render Disk montado en /opt/render/project/src/data
+      # (el plan free permite disks pequeños; sin disk, usa la ruta local y pierde datos al redeploy)
+      - key: DB_PATH
+        value: data/facturas.db
