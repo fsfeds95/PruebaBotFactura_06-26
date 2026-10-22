@@ -3,6 +3,9 @@
 Bot de Telegram para emitir facturas en PDF (estilo venezolano: RIF, IVA 16%,
 nº de control) y almacenarlas en SQLite.
 
+[![Deploy to Render](https://img.shields.io/badge/Deploy%20to-Render-46b3ff?style=for-the-badge&logo=render&logoColor=white)](https://dashboard.render.com/deploy/sr-new-repo?repo=https://github.com/TU_USUARIO/facturabot&type=web_service)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/TU_USUARIO/facturabot&project-name=facturabot&framework=python)
+
 ## ⚠️ Seguridad
 
 - El **token nunca va en el código**: se lee de `BOT_TOKEN` (`.env`).
@@ -40,9 +43,15 @@ python main.py
 
 ## Despliegue en la nube (botones 🚀)
 
-La página `https://<tu-despliegue>/` muestra los botones **Deploy to Render** y
-**Deploy to Vercel**. Antes de usarlos, reemplaza `TU_USUARIO` por tu usuario
-de GitHub en `web/index.html` (enlaces de los botones).
+Haz clic en un botón para desplegar en **1 minuto** (reemplaza `TU_USUARIO`
+por tu usuario/repo de GitHub donde aparezca):
+
+[![Deploy to Render](https://img.shields.io/badge/Deploy%20to-Render-46b3ff?style=for-the-badge&logo=render&logoColor=white)](https://dashboard.render.com/deploy/sr-new-repo?repo=https://github.com/TU_USUARIO/facturabot&type=web_service)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/TU_USUARIO/facturabot&project-name=facturabot&framework=python)
+
+> También puedes usar estos botones desde la landing page del proyecto
+> (`web/index.html`) una vez desplegada. Recuerda actualizar `TU_USUARIO`
+> también allí.
 
 ### Render (recomendado — BD persistente)
 
