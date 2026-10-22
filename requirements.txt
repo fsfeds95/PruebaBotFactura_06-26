@@ -2,3 +2,7 @@ python-telegram-bot>=21.0
 reportlab>=4.0
 requests>=2.31
 python-dotenv>=1.0
+
+# Modo webhook / despliegue web (Render y Vercel)
+flask>=3.0
+gunicorn>=22.0
