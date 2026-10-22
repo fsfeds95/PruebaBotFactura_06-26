@@ -1,0 +1,19 @@
+# Secretos y configuración local
+.env
+
+# Bases de datos y caché
+*.db
+*.db-wal
+*.db-shm
+.cache/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
